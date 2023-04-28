@@ -5,6 +5,10 @@ public class DigitalVideoDisc {
 	private String director;
 	private int length;
 	private float cost;
+	
+	
+	
+	
 	/**
 	 * @return the title
 	 */
@@ -17,6 +21,8 @@ public class DigitalVideoDisc {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	
 	/**
 	 * @return the category
 	 */
@@ -65,4 +71,58 @@ public class DigitalVideoDisc {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
+	
+	// Construct method
+	
+	public DigitalVideoDisc() {
+		
+	}
+	
+	/**
+	 * 
+	 * @param Create DVD by title
+	 */
+	public DigitalVideoDisc(String title) {
+		super();
+		this.setTitle(title);
+	}
+	
+	
+	/**
+	 * @param Create DVD by category, title, cost
+	 */
+	public DigitalVideoDisc(String category, String title, float cost) {
+		super();
+		this.setCategory(category);
+		this.setTitle(title);
+		this.setCost(cost);
+	}
+
+	/**
+	 * @param Create DVD by director, category, title and cost
+	 */
+	public DigitalVideoDisc(String director, String category, String title, float cost) {
+		super();
+		this.setDirector(director);
+		this.setCategory(category);
+		this.setTitle(title);
+		this.setCost(cost);
+	}
+	
+	/**
+	 * @param Create DVD by all attributes: title, category, director, length and cost
+	 */
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+		super();
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setDirector(director);
+		this.setLength(length);
+		this.setCost(cost);
+	}
+	
+	
+	
+	
+	
 }
