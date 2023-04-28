@@ -1,0 +1,3 @@
+Q: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+
+A: No, because both of them are of String type, JAVA cannot distinguish whether it is category or title
