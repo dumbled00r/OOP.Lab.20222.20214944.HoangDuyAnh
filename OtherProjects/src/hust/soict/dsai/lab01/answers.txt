@@ -1,0 +1,14 @@
+Question: What happens if users choose “Cancel”?
+Answer: It will say "No"
+
+Question: How to customize the options to users, e.g. only two options: “Yes” and “No”, OR “I do”
+and “I don’t” (Suggestion: Use Javadocs or using Eclipse/Netbean IDE help)
+Answer: 
+
+int response = JOptionPane.showOptionDialog(null, "Do you want to change to the first class ticket?", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+
+if (response == JOptionPane.YES_OPTION) {
+    // User clicked "Yes"
+} else if (response == JOptionPane.NO_OPTION) {
+    // User clicked "No"
+}
