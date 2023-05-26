@@ -40,4 +40,10 @@ public abstract class Disc extends Media {
 		this.setLength(length);
 		this.setDirector(director);
 	}
+	
+	// Method to print out Disc
+	@Override
+	public String toString() {
+		return "Disc - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + this.getLength() + ": "+ this.getCost() + "$";
+	}
 }
