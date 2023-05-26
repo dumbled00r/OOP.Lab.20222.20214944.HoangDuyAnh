@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.cart.Cart;
+
 import java.lang.NullPointerException;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc.*;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Cart {
 	public static final int MAX_NUMBER_ORDERED = 20;

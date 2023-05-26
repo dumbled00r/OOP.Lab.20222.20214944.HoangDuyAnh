@@ -1,6 +1,8 @@
 package hust.soict.dsai.aims.store.Store;
+
 import java.lang.NullPointerException;
-import hust.soict.dsai.aims.disc.DigitalVideoDisc.*;
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+
 public class Store {
 	public static final int MAX_NUMBER_OF_DVDS = 100000;
 	private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[MAX_NUMBER_OF_DVDS];

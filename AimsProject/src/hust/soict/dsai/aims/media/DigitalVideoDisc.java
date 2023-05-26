@@ -1,45 +1,10 @@
-package hust.soict.dsai.aims.disc.DigitalVideoDisc;
+package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc {
-	private String title;
-	private String category;
+public class DigitalVideoDisc extends Media {
+	
 	private String director;
 	private int length;
-	private float cost;
-	
 	private static int nbDigitalVideoDiscs = 0;
-	private int id;
-	
-	
-	
-	
-	
-	/**
-	 * @return the title
-	 */
-	public String getTitle() {
-		return title;
-	}
-	/**
-	 * @param title the title to set
-	 */
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
-	
-	/**
-	 * @return the category
-	 */
-	public String getCategory() {
-		return category;
-	}
-	/**
-	 * @param category the category to set
-	 */
-	public void setCategory(String category) {
-		this.category = category;
-	}
 	/**
 	 * @return the director
 	 */
@@ -64,32 +29,13 @@ public class DigitalVideoDisc {
 	public void setLength(int length) {
 		this.length = length;
 	}
-	/**
-	 * @return the cost
-	 */
-	public float getCost() {
-		return cost;
-	}
-	/**
-	 * @param cost the cost to set
-	 */
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
 	
-	
-	/**
-	 * @param get id of the disc
-	 */
-	public int getId() {
-		return id;
-	}
 	
 	// Construct method
 	
 	public DigitalVideoDisc() {
 		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	
 	/**
@@ -100,7 +46,7 @@ public class DigitalVideoDisc {
 		super();
 		this.setTitle(title);
 		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	
 	
@@ -113,7 +59,7 @@ public class DigitalVideoDisc {
 		this.setTitle(title);
 		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 
 	/**
@@ -126,7 +72,7 @@ public class DigitalVideoDisc {
 		this.setTitle(title);
 		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	
 	/**
@@ -140,7 +86,7 @@ public class DigitalVideoDisc {
 		this.setLength(length);
 		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	
 	public String toString() {
@@ -151,7 +97,7 @@ public class DigitalVideoDisc {
 	
 	public boolean isMatch(String title) {
 		
-		if (this.title == title) {
+		if (this.getTitle() == title) {
 			return true;
 		}
 		return false;
