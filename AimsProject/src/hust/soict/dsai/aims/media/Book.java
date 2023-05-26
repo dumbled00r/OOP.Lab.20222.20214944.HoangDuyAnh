@@ -1,5 +1,4 @@
 package hust.soict.dsai.aims.media;
-
 import java.util.*;
 
 public class Book extends Media {
@@ -46,5 +45,11 @@ public class Book extends Media {
 		else {
 			System.out.println(authorName + " does not exist in the list");
 		}
+	}
+	
+	// Print out book infos
+	@Override
+	public String toString() {
+		return "Book - " + this.getTitle() + " - " + this.getCategory() + ": "+ this.getCost() + "$";
 	}
 }
