@@ -3,7 +3,6 @@ import java.util.*;
 
 public class Book extends Media {
 	private List<String> authors = new ArrayList<String>();
-
 	public Book(String title, String category, float cost) {
 		// TODO Auto-generated constructor stub
 		super(title, category, cost);
