@@ -3,11 +3,11 @@ package hust.soict.dsai.aims.media;
 import java.util.*;
 
 public class Book extends Media {
-	
 	private List<String> authors = new ArrayList<String>();
 
-	public Book() {
+	public Book(String title, String category, float cost) {
 		// TODO Auto-generated constructor stub
+		super(title, category, cost);
 	}
 
 	/**
@@ -24,11 +24,9 @@ public class Book extends Media {
 		this.authors = authors;
 	}
 	
-	
-	
 	// Adding an author to the list of authors
-	
 	public void addAuthor(String authorName) {
+		// Check if the author already exists in the list
 		if (authors.contains(authorName)) {
 			System.out.println(authorName + " is already in the list");
 		}
@@ -38,10 +36,9 @@ public class Book extends Media {
 		}
 	}
 	
-	
-	
 	// Remove an author from the list of authors
 	public void removeAuthor(String authorName) {
+		// Check if the author already exists in the list
 		if (authors.contains(authorName)) {
 			authors.remove(authorName);
 			System.out.println(authorName + " has been removed from the list");
@@ -50,5 +47,4 @@ public class Book extends Media {
 			System.out.println(authorName + " does not exist in the list");
 		}
 	}
-	
 }
