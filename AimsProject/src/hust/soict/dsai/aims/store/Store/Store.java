@@ -4,13 +4,12 @@ import hust.soict.dsai.aims.media.*;
 import java.util.*;
 
 public class Store {
-	public static final int MAX_NUMBER_OF_DVDS = 100000;
+	public static final int MAX_NUMBER_OF_ITEMS = 100000;
 	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
-	private int currentNBDVDs;
 	
 	// Add Media to the score
 	public void addMedia(Media media) {
-		if (currentNBDVDs < MAX_NUMBER_OF_DVDS) {
+		if (itemsInStore.size() < MAX_NUMBER_OF_ITEMS) {
 			itemsInStore.add(media);
 			System.out.println("The media has been added to the store");
 		}
@@ -25,7 +24,6 @@ public class Store {
 		if (itemsInStore.size() == 0) {
 			System.out.println("The store is empty");
 		}
-		
 		// Check if item exists in store
 		if (itemsInStore.contains(media)) {
 			itemsInStore.remove(media);
