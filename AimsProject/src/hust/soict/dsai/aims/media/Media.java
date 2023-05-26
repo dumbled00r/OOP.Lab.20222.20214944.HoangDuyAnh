@@ -1,14 +1,17 @@
 package hust.soict.dsai.aims.media;
 
 public abstract class Media {
-	
+	private static int nItems = 0;
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
 	
-	public Media() {
-		// TODO Auto-generated constructor stub
+	public Media(String title, String category, float cost) {
+		id = nItems++;
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setCost(cost);
 	}
 
 	/**
@@ -67,6 +70,24 @@ public abstract class Media {
 		this.cost = cost;
 	}
 	
+	// Overriding toString method 
+	@Override
+	public abstract String toString();
 	
-
+	// Overriding equals method
+	@Override
+	public boolean equals(Object obj) {
+		Media media = (Media) obj;
+		return this.getTitle() == media.getTitle();
+	}
+	
+	// check if Match by ID
+	public boolean isMatchByID(int id) {
+		return this.getId() == id;
+	}
+	
+	// check if Match by Title
+	public boolean isMatchByTitle(String title) {
+		return this.title.equals(title);
+	}
 }
