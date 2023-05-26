@@ -8,7 +8,7 @@ public class Cart {
 	public static final int MAX_NUMBER_ORDERED = 20;
 	private ArrayList<Media> itemsOrdered = 
 			new ArrayList<Media>();
-	// add a DVD to cart
+	// add a media to cart
 	public void addMedia(Media media) {
 		// Check whether the Cart is full
 		if (itemsOrdered.size()<MAX_NUMBER_ORDERED) {
@@ -20,7 +20,7 @@ public class Cart {
 		}
 	}
 	
-	// Remove a DVD from cart 
+	// Remove a media from cart 
 	public void removeMedia(Media media) {
 		// Check if the cart is empty
 		if (itemsOrdered.size() == 0) {
