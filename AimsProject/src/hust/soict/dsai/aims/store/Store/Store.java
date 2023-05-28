@@ -29,6 +29,6 @@ public class Store {
 			itemsInStore.remove(media);
 			System.out.println("The media is found and is removed from the store");
 		}
-		else System.out.println("DVD is not found");
+		else System.out.println("Media is not found");
 	}
 }
