@@ -11,6 +11,7 @@ public abstract class Media {
 	private String category;
 	private float cost;
 	
+	// Constructor method
 	public Media(String title, String category, float cost) {
 		id = nItems++;
 		this.setTitle(title);
