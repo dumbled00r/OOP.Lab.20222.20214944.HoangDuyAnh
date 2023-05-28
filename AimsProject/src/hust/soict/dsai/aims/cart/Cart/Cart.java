@@ -55,7 +55,6 @@ public class Cart {
 		// Print out total cost
 		System.out.println("Total cost: " + totalCost() + "$");
 		System.out.println("***************************************************");
-		
 	}
 	
 	// Search for item in cart by ID
@@ -94,8 +93,7 @@ public class Cart {
 			System.out.println("There is no items with ID "+ id);
 		}				
 	}
-	
-	
+
 	// Search for item in cart by title
 	public void searchForItemByTitle(String title) {
 		boolean found = false;
