@@ -7,7 +7,7 @@ Question: In those classes, how should you implement the compareTo() method be t
 Answer: 
 	@Override
 	public int compareTo(Media other) {
-		return Comparatator.comparing(Media::getTitle)
+		return Comparator.comparing(Media::getTitle)
 			.thenComparingDouble(Media::getCost()
 			.compare(this, other);
 	}
