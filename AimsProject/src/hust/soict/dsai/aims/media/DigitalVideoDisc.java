@@ -1,7 +1,6 @@
 package hust.soict.dsai.aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable {
-	
 	// Construct method
 	public DigitalVideoDisc() {
 		super(null, null, null, 0, 0);
@@ -32,7 +31,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	 * @param Create DVD by all attributes: title, category, director, length and cost
 	 */
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super(title, category, director, 0, cost);
+		super(title, category, director, length, cost);
 	}
 	
 	// Method to print out DVD format

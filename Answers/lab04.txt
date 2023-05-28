@@ -1,0 +1,27 @@
+Question: Suppose we are taking this Comparable interface approach
+	  What class should implement the Comparable interface?
+Answer:	  The Media class
+
+Question: In those classes, how should you implement the compareTo() method be to reflect 
+	  the ordering that we want?
+Answer: 
+	@Override
+	public int compareTo(Media other) {
+		return Comparator.comparing(Media::getTitle)
+			.thenComparingDouble(Media::getCost()
+			.compare(this, other);
+	}
+
+Question: Can we have two ordering rules of the item (by title then cost and by cost then title)
+	  if we use this Comparable interface approach?
+Answer:   No we can't because we can't declare two methods with the same name and signature
+
+Question: Suppose the DVDs have a different ordering rule from other media types, that is by title, then decreasing length, then cost. How would you modify your code to allow this?
+Answer:
+	@Override
+	public int compareTo(DigitalVideoDisc other) {
+		return Comparator.comparing(DigitalVideoDisc::getTitle)
+			.thenComparingInt(DigitalVideoDisc::getLength)
+			.thenComparingDouble(DigitalVideoDisc::getCost)
+			.comparing(this, other);
+	}

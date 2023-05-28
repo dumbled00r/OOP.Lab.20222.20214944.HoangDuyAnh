@@ -27,11 +27,13 @@ public class CompactDisc extends Disc implements Playable {
 	public void addTrack(Track track) {
 		// Check if track is in the list or not
 		if (tracks.contains(track)) {
-			System.out.println("The track already exists in the compact disc");
+			System.out.println("The track already exists in the CD");
+			System.out.println();
 		}
 		else {
 			tracks.add(track);
-			System.out.println("The track has been added to the compact disc");
+			System.out.println("The track has been added to the CD");
+			System.out.println();
 		}
 	}
 	
@@ -60,7 +62,7 @@ public class CompactDisc extends Disc implements Playable {
 	
 	// implementing playable
 	public void play() {
-		System.out.println("Playing compact disc " + this.getTitle());
+		System.out.println("Playing " + this.getTitle());
 		// Iterate through all tracks
 		for (Track track: tracks) {
 			track.play();

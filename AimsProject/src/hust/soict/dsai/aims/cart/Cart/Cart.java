@@ -49,13 +49,12 @@ public class Cart {
 		System.out.println("Ordered Items:");
 		try {
 			for (Media media : itemsOrdered) {
-				System.out.println(media.getId()+1 + ". " + media.toString());
+				System.out.println(media.getId() + 1 + ". " + media.toString());
 			}
 		} catch (NullPointerException e) {}
 		// Print out total cost
 		System.out.println("Total cost: " + totalCost() + "$");
-		System.out.println("***************************************************");
-		
+		System.out.println("**************************************************");
 	}
 	
 	// Search for item in cart by ID
@@ -94,8 +93,7 @@ public class Cart {
 			System.out.println("There is no items with ID "+ id);
 		}				
 	}
-	
-	
+
 	// Search for item in cart by title
 	public void searchForItemByTitle(String title) {
 		boolean found = false;
@@ -132,10 +130,20 @@ public class Cart {
 			System.out.println("There is no items with title "+ title);
 		}				
 	}
+	
+	// Sort cart by title
+	public void sortByTitle() {
+		Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+	}
+	
+	// Sort cart by price
+	public void sortByPrice() {
+		Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+	}
+	
+	// Place order
+	public void placeOrder() {
+		itemsOrdered.clear();
+		System.out.println("Order placed!");
+	}
 }
-	
-	
-	
-	
-
-

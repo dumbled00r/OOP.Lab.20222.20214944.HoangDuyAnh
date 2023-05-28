@@ -1,12 +1,17 @@
 package hust.soict.dsai.aims.media;
 
+import java.util.Comparator;
+
 public abstract class Media {
 	private static int nItems = 0;
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 	private int id;
 	private String title;
 	private String category;
 	private float cost;
 	
+	// Constructor method
 	public Media(String title, String category, float cost) {
 		id = nItems++;
 		this.setTitle(title);
@@ -89,5 +94,14 @@ public abstract class Media {
 	// check if Match by Title
 	public boolean isMatchByTitle(String title) {
 		return this.title.equals(title);
+	}
+	
+	// Try to play 
+	public void tryToPlay() {
+		if (this instanceof Playable) {
+			var playable = (Playable) this;
+			playable.play();
+		}
+		else System.out.println("This item is not playable");
 	}
 }
