@@ -27,8 +27,24 @@ public class Store {
 		// Check if item exists in store
 		if (itemsInStore.contains(media)) {
 			itemsInStore.remove(media);
-			System.out.println("The media is found and is removed from the store");
 		}
 		else System.out.println("Media is not found");
+	}
+
+	// Method to print items in store
+	public void print() {
+		System.out.println("**********************STORE***********************");
+		for (Media media : itemsInStore) {
+			System.out.println(media.getId() + 1 + ". " + media.toString());
+		}
+		System.out.println("**************************************************");
+	}
+	
+	// Method to search for an item in store by title
+	public Media searchByTitle(String title) {
+		for (Media media : itemsInStore)
+			if (media.isMatchByTitle(title)) 
+				return media;
+		return null;
 	}
 }

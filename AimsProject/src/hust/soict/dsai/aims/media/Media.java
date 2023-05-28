@@ -95,4 +95,13 @@ public abstract class Media {
 	public boolean isMatchByTitle(String title) {
 		return this.title.equals(title);
 	}
+	
+	// Try to play 
+	public void tryToPlay() {
+		if (this instanceof Playable) {
+			var playable = (Playable) this;
+			playable.play();
+		}
+		else System.out.println("This item is not playable");
+	}
 }
