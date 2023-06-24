@@ -2,12 +2,16 @@ package hust.soict.dsai.aims.cart.Cart;
 
 import java.lang.NullPointerException;
 import hust.soict.dsai.aims.media.*;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.util.*;
 
 public class Cart {
 	public static final int MAX_NUMBER_ORDERED = 20;
-	private ArrayList<Media> itemsOrdered = 
-			new ArrayList<Media>();
+	private ObservableList<Media> itemsOrdered =
+			FXCollections.observableArrayList();
 	// add a media to cart
 	public void addMedia(Media media) {
 		// Check whether the Cart is full
@@ -145,5 +149,10 @@ public class Cart {
 	public void placeOrder() {
 		itemsOrdered.clear();
 		System.out.println("Order placed!");
+	}
+
+	// get ordered items
+	public ObservableList<Media> getItemsOrdered(){
+		return itemsOrdered;
 	}
 }
