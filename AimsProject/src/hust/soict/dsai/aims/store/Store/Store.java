@@ -47,4 +47,9 @@ public class Store {
 				return media;
 		return null;
 	}
+	
+	// Return current items in store
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}	
 }
