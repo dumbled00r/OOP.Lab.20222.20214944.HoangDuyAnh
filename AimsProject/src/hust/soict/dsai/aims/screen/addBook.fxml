@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <VBox prefHeight="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Book" textAlignment="CENTER">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="275.0" />
+                    </VBox.margin>
+                </Label>
+                <TextField fx:id="tfTitle" promptText="Enter Title">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="200.0" right="200.0" top="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="tfCategory" promptText="Enter Category">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="200.0" right="200.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="tfCost" promptText="Enter Cost">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="200.0" right="200.0" />
+                    </VBox.margin>
+                </TextField>
+                <Button fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to Store" textAlignment="CENTER">
+                    <VBox.margin>
+                        <Insets left="260.0" top="10.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets top="100.0" />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+    <top>
+        <VBox prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Options">
+                            <items>
+                                <Menu mnemonicParsing="false" text="Update Store">
+                                    <items>
+                                        <MenuItem fx:id="addCD" mnemonicParsing="false" text="Add CD" />
+                                        <MenuItem fx:id="addDVD" mnemonicParsing="false" text="Add DVD" />
+                                    </items>
+                                </Menu>
+                                <MenuItem fx:id="viewStore" mnemonicParsing="false" text="View Store" />
+                                <MenuItem fx:id="viewCart" mnemonicParsing="false" text="View Cart" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </VBox>
+    </top>
+</BorderPane>

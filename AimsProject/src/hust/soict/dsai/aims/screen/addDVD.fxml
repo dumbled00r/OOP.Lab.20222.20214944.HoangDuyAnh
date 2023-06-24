@@ -24,7 +24,7 @@
                   <Insets left="212.0" />
                </VBox.margin>
             </Label>
-            <TextField promptText="Enter Title">
+            <TextField fx:id="tfTitle" promptText="Enter Title">
                <font>
                   <Font size="16.0" />
                </font>
@@ -32,7 +32,7 @@
                   <Insets bottom="5.0" left="200.0" right="200.0" top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Enter Category">
+            <TextField fx:id="tfCategory" promptText="Enter Category">
                <font>
                   <Font size="16.0" />
                </font>
@@ -40,7 +40,7 @@
                   <Insets bottom="5.0" left="200.0" right="200.0" />
                </VBox.margin>
             </TextField>
-            <TextField promptText="Enter Cost">
+            <TextField fx:id="tfCost" promptText="Enter Cost">
                <font>
                   <Font size="16.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets left="200.0" right="200.0" />
                </VBox.margin>
             </TextField>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to Store" textAlignment="CENTER">
+            <Button fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Add to Store" textAlignment="CENTER">
                <VBox.margin>
                   <Insets left="260.0" top="10.0" />
                </VBox.margin>
@@ -68,12 +68,12 @@
                      <items>
                         <Menu mnemonicParsing="false" text="Update Store">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="Add Book" />
-                              <MenuItem mnemonicParsing="false" text="Add CD" />
+                            <MenuItem fx:id="addBook" mnemonicParsing="false" text="Add Book" />
+                              <MenuItem fx:id="addCD" mnemonicParsing="false" text="Add CD" />
                           </items>
                         </Menu>
-                        <MenuItem mnemonicParsing="false" text="View Store" />
-                        <MenuItem mnemonicParsing="false" text="View Cart" />
+                        <MenuItem fx:id="viewStore" mnemonicParsing="false" text="View Store" />
+                        <MenuItem fx:id="viewCart" mnemonicParsing="false" text="View Cart" />
                      </items>
                 </Menu>
               </menus>

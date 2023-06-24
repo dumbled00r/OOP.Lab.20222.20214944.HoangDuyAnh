@@ -1,17 +1,18 @@
 package hust.soict.dsai.aims.media;
 
+import java.io.IOException;
 import java.util.*;
 
 public class CompactDisc extends Disc implements Playable {
 	private String artist;
 	private List<Track> tracks = new ArrayList<>();
 	
-	public CompactDisc(String title, String category, String director, int length, float cost, String artist) {
+	public CompactDisc(String title, String category, String director, int length, float cost, String artist) throws IOException {
 		super(title, category, director, length, cost);
 		this.setArtist(artist);
 	}
 
-	public CompactDisc(String title, String category, float cost){
+	public CompactDisc(String title, String category, float cost) throws IOException {
 		super(title, category, cost);
 	}
 	/**

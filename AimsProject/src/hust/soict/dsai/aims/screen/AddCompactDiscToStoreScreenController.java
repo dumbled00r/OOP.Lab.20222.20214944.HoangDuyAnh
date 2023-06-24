@@ -1,8 +1,9 @@
 package hust.soict.dsai.aims.screen;
 
 import hust.soict.dsai.aims.cart.Cart.Cart;
-import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.CompactDisc;
 import hust.soict.dsai.aims.store.Store.Store;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
@@ -11,7 +12,7 @@ import javafx.scene.control.TextField;
 import javax.naming.LimitExceededException;
 import java.io.IOException;
 
-public class AddDigitalVideoDiscToScreenController {
+public class AddCompactDiscToStoreScreenController {
     private Store store;
     private Cart cart;
     private Runnable windowCloser;
@@ -31,28 +32,28 @@ public class AddDigitalVideoDiscToScreenController {
     @FXML
     private MenuItem addBook;
     @FXML
-    private MenuItem addCD;
+    private MenuItem addDVD;
 
-    public AddDigitalVideoDiscToScreenController(Store store, Cart cart){
+    public AddCompactDiscToStoreScreenController(Store store, Cart cart){
         super();
         this.store = store;
         this.cart = cart;
     }
     @FXML
     private void initialize(){
-        // Add button handler
+        // Add button handlers
         btnAdd.setOnAction(e -> {
             String title = tfTitle.getText();
             String category = tfCategory.getText();
             Float cost = Float.parseFloat(tfCost.getText());
-            DigitalVideoDisc dvd = null;
+            CompactDisc cd = null;
             try {
-                dvd = new DigitalVideoDisc(title, category, cost);
+                cd = new CompactDisc(title, category, cost);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
             try {
-                store.addMedia(dvd);
+                store.addMedia(cd);
             } catch (LimitExceededException ex) {
                 throw new RuntimeException(ex);
             }
@@ -60,7 +61,7 @@ public class AddDigitalVideoDiscToScreenController {
             tfCategory.clear();
             tfCost.clear();
         });
-        // Handler menu items
+        // Menu items handlers
         viewStore.setOnAction(e -> {
             windowCloser.run();
             new StoreScreen(store, cart);
@@ -73,9 +74,9 @@ public class AddDigitalVideoDiscToScreenController {
             windowCloser.run();
             new AddBookToStoreScreen(store, cart);
         });
-        addCD.setOnAction(e -> {
+        addDVD.setOnAction(e -> {
             windowCloser.run();
-            new AddCompactDiscToStoreScreen(store, cart);
+            new AddDigitalVideoDiscToStoreScreen(store, cart);
         });
     }
 

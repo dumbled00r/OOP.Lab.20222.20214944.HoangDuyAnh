@@ -25,12 +25,12 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Options">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="View Store" />
+                        <MenuItem fx:id="viewStore" mnemonicParsing="false" text="View Store" />
                         <Menu mnemonicParsing="false" text="Update Store">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="Add Book" />
-                              <MenuItem mnemonicParsing="false" text="Add CD" />
-                              <MenuItem mnemonicParsing="false" text="Add DVD" />
+                            <MenuItem fx:id="addBook" mnemonicParsing="false" text="Add Book" />
+                              <MenuItem fx:id="addCD" mnemonicParsing="false" text="Add CD" />
+                              <MenuItem fx:id="addDVD" mnemonicParsing="false" text="Add DVD" />
                           </items>
                         </Menu>
                   </items>

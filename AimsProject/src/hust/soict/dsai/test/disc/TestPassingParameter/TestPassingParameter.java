@@ -2,8 +2,10 @@ package hust.soict.dsai.test.disc.TestPassingParameter;
 
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
+import java.io.IOException;
+
 public class TestPassingParameter {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		// Initialize dvds
 		DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
@@ -19,7 +21,7 @@ public class TestPassingParameter {
 	}
 	
 	// Corrected swap method
-	public static void swap(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+	public static void swap(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) throws IOException {
 		String tmpTitle = dvd1.getTitle();
 		String tmpCategory = dvd1.getCategory();
 		String tmpDirector = dvd1.getDirector();
@@ -41,7 +43,7 @@ public class TestPassingParameter {
 	}
 	
 	// Change title method
-	public static void changeTitle(DigitalVideoDisc dvd, String title) {
+	public static void changeTitle(DigitalVideoDisc dvd, String title) throws IOException {
 		String oldTitle = dvd.getTitle();
 		dvd.setTitle(title);
 		dvd = new DigitalVideoDisc(oldTitle);

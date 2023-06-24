@@ -4,6 +4,7 @@ import hust.soict.dsai.aims.cart.Cart.Cart;
 import hust.soict.dsai.aims.media.Media;
 import hust.soict.dsai.aims.media.Playable;
 
+import hust.soict.dsai.aims.store.Store.Store;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
@@ -17,6 +18,7 @@ import java.awt.event.ActionEvent;
 
 public class CartScreenController {
     private Cart cart;
+    private Store store;
     private double currentCost = 0;
     private Runnable windowCloser;
 
@@ -44,10 +46,20 @@ public class CartScreenController {
     private Button btnPlaceOrder;
     @FXML
     private Label lblCost;
+    @FXML
+    private MenuItem addBook;
+    @FXML
+    private MenuItem addCD;
+    @FXML
+    private MenuItem addDVD;
+    @FXML
+    private MenuItem viewStore;
 
-    public CartScreenController(Cart cart) {
+    public CartScreenController(Store store, Cart cart, Runnable windowCloser) {
         super();
+        this.store = store;
         this.cart = cart;
+        this.windowCloser = windowCloser;
     }
 
     @FXML
@@ -72,14 +84,9 @@ public class CartScreenController {
 
         // State of Play and Remove button
         tblMedia.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Media>() {
-                    @Override
-                    public void changed(ObservableValue<? extends Media> observable,
-                                        Media oldValue,
-                                        Media newValue) {
-                        if (newValue != null) {
-                            updateButtonBar(newValue);
-                        }
+                (observable, oldValue, newValue) -> {
+                    if (newValue != null) {
+                        updateButtonBar(newValue);
                     }
                 }
         );
@@ -93,14 +100,7 @@ public class CartScreenController {
         });
 
         // Filtering actions
-        tfFilter.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable,
-                                String oldValue,
-                                String newValue) {
-                showFilteredMedia(newValue);
-            }
-        });
+        tfFilter.textProperty().addListener((observable, oldValue, newValue) -> showFilteredMedia(newValue));
 
         // Place order button clicked
         btnPlaceOrder.setOnAction(e -> {
@@ -125,6 +125,30 @@ public class CartScreenController {
                 alert.setContentText("The track is currently playing");
                 alert.showAndWait();
             }
+        });
+
+        // add book clicked
+        addBook.setOnAction(e -> {
+            windowCloser.run();
+            new AddBookToStoreScreen(store, cart);
+        });
+
+        // add CD clicked
+        addCD.setOnAction(e -> {
+            windowCloser.run();
+            new AddCompactDiscToStoreScreen(store, cart);
+        });
+
+        // add DVD clicked
+        addDVD.setOnAction(e -> {
+            windowCloser.run();
+            new AddDigitalVideoDiscToStoreScreen(store, cart);
+        });
+
+        // view store clicked
+        viewStore.setOnAction(e -> {
+            windowCloser.run();
+            new StoreScreen(store, cart);
         });
     }
 
@@ -152,5 +176,8 @@ public class CartScreenController {
                 }
             } else tblMedia.setItems(cart.getItemsOrdered());
         } catch (Exception e){}
+    }
+    public void setWindowCloser(Runnable windowCloser){
+        this.windowCloser = windowCloser;
     }
 }
