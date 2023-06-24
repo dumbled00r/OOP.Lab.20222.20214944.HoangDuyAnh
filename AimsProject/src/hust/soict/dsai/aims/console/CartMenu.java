@@ -2,6 +2,8 @@ package hust.soict.dsai.aims.console;
 
 import hust.soict.dsai.aims.media.*;
 
+import java.io.IOException;
+
 public class CartMenu extends Handling {
 	public CartMenu(Handling menu) {
 		// TODO Auto-generated constructor stub
@@ -23,7 +25,7 @@ public class CartMenu extends Handling {
 	
 	// Handling choice
 	@Override
-	protected void handleChoice(int choice) {
+	protected void handleChoice(int choice) throws IOException {
 		// TODO Auto-generated method stub
 		Media media = null;
 		// Check whether option is 3 or 4 to input media

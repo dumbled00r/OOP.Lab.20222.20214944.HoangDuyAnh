@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.console;
 
+import javax.naming.LimitExceededException;
+import java.io.IOException;
 import java.util.*;
 
 public class MainMenu extends Handling {
@@ -21,7 +23,7 @@ public class MainMenu extends Handling {
 	
 	// Handling choice
 	@Override
-	protected void handleChoice(int choice) {
+	protected void handleChoice(int choice) throws LimitExceededException, IOException {
 		// TODO Auto-generated method stub
 		switch (choice) {
 			case 1:

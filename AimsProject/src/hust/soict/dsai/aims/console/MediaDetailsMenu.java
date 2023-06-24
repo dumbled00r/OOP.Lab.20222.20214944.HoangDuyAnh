@@ -2,6 +2,8 @@ package hust.soict.dsai.aims.console;
 
 import hust.soict.dsai.aims.media.*;
 
+import javax.naming.LimitExceededException;
+
 public class MediaDetailsMenu extends Handling {
 	private Media item;
 	public MediaDetailsMenu(Handling menu, Media item) {
@@ -20,7 +22,7 @@ public class MediaDetailsMenu extends Handling {
 	
 	// Handle choice of user
 	@Override
-	protected void handleChoice(int choice) {
+	protected void handleChoice(int choice) throws LimitExceededException {
 		// TODO Auto-generated method stub
 		switch (choice) {
 			case 1:

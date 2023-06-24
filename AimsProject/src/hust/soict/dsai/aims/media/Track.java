@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 
+import java.io.IOException;
+
 public class Track implements Playable {
 	private String title;
 	private int length;
@@ -28,12 +30,16 @@ public class Track implements Playable {
 	/**
 	 * @param length the length to set
 	 */
-	public void setLength(int length) {
-		this.length = length;
+	public void setLength(int length) throws IOException {
+		if (length >= 0){
+			this.length = length;
+		} else {
+			throw new IOException("Track's length must be greater or equal");
+		}
 	}
 	
 	// Constructor method
-	public Track(String title, int length) {
+	public Track(String title, int length) throws IOException {
 		// Set length and title 
 		this.setLength(length);
 		this.setTitle(title);

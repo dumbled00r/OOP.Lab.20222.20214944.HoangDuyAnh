@@ -10,6 +10,10 @@ public class CompactDisc extends Disc implements Playable {
 		super(title, category, director, length, cost);
 		this.setArtist(artist);
 	}
+
+	public CompactDisc(String title, String category, float cost){
+		super(title, category, cost);
+	}
 	/**
 	 * @return the artist
 	 */

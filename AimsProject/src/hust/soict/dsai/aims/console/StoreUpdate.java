@@ -2,6 +2,9 @@ package hust.soict.dsai.aims.console;
 
 import hust.soict.dsai.aims.media.*;
 
+import javax.naming.LimitExceededException;
+import java.io.IOException;
+
 public class StoreUpdate extends Handling {
 
 	protected StoreUpdate(Handling menu) {
@@ -21,7 +24,7 @@ public class StoreUpdate extends Handling {
 	
 	// Handling choice
 	@Override
-	protected void handleChoice(int choice) {
+	protected void handleChoice(int choice) throws IOException, LimitExceededException {
 		// TODO Auto-generated method stub
 		switch (choice) {
 			case 1:
