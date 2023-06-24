@@ -25,6 +25,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Options">
                   <items>
+                        <MenuItem mnemonicParsing="false" text="View Store" />
                         <Menu mnemonicParsing="false" text="Update Store">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Add Book" />
@@ -100,14 +101,14 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label text="0 $" textFill="AQUA">
+                  <Label fx:id="lblCost" text="0 $" textFill="AQUA">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
+            <Button fx:id="btnPlaceOrder" mnemonicParsing="false" style="-fx-background-color: red;" text="Place Order" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
