@@ -1,26 +1,31 @@
 package hust.soict.dsai.aims.cart.Cart;
 
+import java.io.IOException;
 import java.lang.NullPointerException;
 import hust.soict.dsai.aims.media.*;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import javax.naming.LimitExceededException;
 import java.util.*;
 
 public class Cart {
 	public static final int MAX_NUMBER_ORDERED = 20;
 	private ObservableList<Media> itemsOrdered =
 			FXCollections.observableArrayList();
+
+	private ObservableList<Media> filteredItems =
+			FXCollections.observableArrayList();
 	// add a media to cart
-	public void addMedia(Media media) {
+	public void addMedia(Media media) throws LimitExceededException {
 		// Check whether the Cart is full
 		if (itemsOrdered.size()<MAX_NUMBER_ORDERED) {
 			itemsOrdered.add(media);
 			System.out.println("The item has been added to the cart");
 		}
 		else{
-			System.out.println("The cart is almost full");	
+			throw new LimitExceededException("The cart is currently full, cannot add more items!");
 		}
 	}
 	
@@ -53,7 +58,7 @@ public class Cart {
 		System.out.println("Ordered Items:");
 		try {
 			for (Media media : itemsOrdered) {
-				System.out.println(media.getId() + 1 + ". " + media.toString());
+				System.out.println(media.getId() + ". " + media.toString());
 			}
 		} catch (NullPointerException e) {}
 		// Print out total cost
@@ -62,7 +67,8 @@ public class Cart {
 	}
 	
 	// Search for item in cart by ID
-	public void searchForItemByID(int id) {
+	public ObservableList<Media> searchForItemByID(int id) {
+		filteredItems.clear();
 		boolean found = false;
 		int idx = 1;
 		// Look for item in the cart, if there exists one, return true
@@ -74,6 +80,8 @@ public class Cart {
 				}
 			}
 			catch (NullPointerException e) {
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			}
 		}
 		
@@ -86,20 +94,25 @@ public class Cart {
 					if (media.isMatchByID(id)) {
 						System.out.println(idx + ". " + media.toString());
 						idx++;
+						filteredItems.add(media);
 					}
 				}
 				catch (NullPointerException e) {
+				} catch (IOException e) {
+					throw new RuntimeException(e);
 				}
 			}
 			System.out.println("***************************************************");
 		}
 		else {
 			System.out.println("There is no items with ID "+ id);
-		}				
+		}
+		return filteredItems;
 	}
 
 	// Search for item in cart by title
-	public void searchForItemByTitle(String title) {
+	public ObservableList<Media> searchForItemByTitle(String title) {
+		filteredItems.clear();
 		boolean found = false;
 		int idx = 1;
 		// Look for item in the cart, if there exists one, return true
@@ -111,6 +124,8 @@ public class Cart {
 				}
 			}
 			catch (NullPointerException e) {
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			}
 		}
 		
@@ -122,17 +137,21 @@ public class Cart {
 				try {
 					if (media.isMatchByTitle(title)) {
 						System.out.println(idx + ". " + media.toString());
+						filteredItems.add(media);
 						idx++;
 					}
 				}
 				catch (NullPointerException e) {	
+				} catch (IOException e) {
+					throw new RuntimeException(e);
 				}
 			}
 			System.out.println("***************************************************");
 		}
 		else {
 			System.out.println("There is no items with title "+ title);
-		}				
+		}
+		return filteredItems;
 	}
 	
 	// Sort cart by title

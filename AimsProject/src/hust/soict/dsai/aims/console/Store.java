@@ -1,6 +1,10 @@
 package hust.soict.dsai.aims.console;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.Media;
+
+import javax.naming.LimitExceededException;
+import java.io.IOException;
 
 public class Store extends Handling {
 	public Store(Handling menu) {
@@ -20,7 +24,7 @@ public class Store extends Handling {
 	
 	// Handling choice
 	@Override
-	protected void handleChoice(int choice) {
+	protected void handleChoice(int choice) throws IOException, LimitExceededException, PlayerException {
 		Media item = null;
 		if (choice <= 3) {
 			System.out.println("Enter title of the item: ");

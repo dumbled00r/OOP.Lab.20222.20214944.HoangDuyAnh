@@ -1,13 +1,16 @@
 package hust.soict.dsai.aims.Aims;
 
+import java.io.IOException;
 import java.util.*;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.console.*;
 import hust.soict.dsai.aims.store.Store.Store;
 import hust.soict.dsai.aims.cart.Cart.*;
 
+import javax.naming.LimitExceededException;
+
 public class Aims {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, LimitExceededException {
 		// TODO Auto-generated method stub
 		Cart cart = new Cart();
 		Store store = new Store();

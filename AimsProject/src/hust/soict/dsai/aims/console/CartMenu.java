@@ -1,6 +1,10 @@
 package hust.soict.dsai.aims.console;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.*;
+
+import javax.naming.LimitExceededException;
+import java.io.IOException;
 
 public class CartMenu extends Handling {
 	public CartMenu(Handling menu) {
@@ -23,7 +27,7 @@ public class CartMenu extends Handling {
 	
 	// Handling choice
 	@Override
-	protected void handleChoice(int choice) {
+	protected void handleChoice(int choice) throws IOException, LimitExceededException, PlayerException {
 		// TODO Auto-generated method stub
 		Media media = null;
 		// Check whether option is 3 or 4 to input media

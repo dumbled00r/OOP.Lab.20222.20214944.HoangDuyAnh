@@ -1,5 +1,8 @@
 package hust.soict.dsai.aims.media;
 
+import hust.soict.dsai.aims.exception.PlayerException;
+
+import java.io.IOException;
 import java.util.Comparator;
 
 public abstract class Media {
@@ -12,7 +15,7 @@ public abstract class Media {
 	private float cost;
 	
 	// Constructor method
-	public Media(String title, String category, float cost) {
+	public Media(String title, String category, float cost) throws IOException {
 		id = nItems++;
 		this.setTitle(title);
 		this.setCategory(category);
@@ -29,8 +32,13 @@ public abstract class Media {
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int id) throws IOException {
+		if (id >= 0){
+			this.id = id;
+		} else {
+			throw new IOException("ID must not be negative");
+		}
+
 	}
 
 	/**
@@ -43,8 +51,12 @@ public abstract class Media {
 	/**
 	 * @param title the title to set
 	 */
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitle(String title) throws IOException {
+		if (!title.equals("")){
+			this.title = title;
+		} else {
+			throw new IOException("Title must not be an empty string");
+		}
 	}
 
 	/**
@@ -71,8 +83,12 @@ public abstract class Media {
 	/**
 	 * @param cost the cost to set
 	 */
-	public void setCost(float cost) {
-		this.cost = cost;
+	public void setCost(float cost) throws IOException {
+		if (cost >= 0) {
+			this.cost = cost;
+		} else {
+			throw new IOException("Cost must not be less than 0");
+		}
 	}
 	
 	// Overriding toString method 
@@ -81,27 +97,47 @@ public abstract class Media {
 	
 	// Overriding equals method
 	@Override
-	public boolean equals(Object obj) {
-		Media media = (Media) obj;
-		return this.getTitle() == media.getTitle();
+	public boolean equals(Object obj) throws NullPointerException, ClassCastException{
+		try {
+			Media media = (Media) obj;
+			return this.getTitle() == media.getTitle();
+		} catch (ClassCastException e) {
+			System.err.println("Cannot cast to Media");
+			return false;
+		} catch (NullPointerException e) {
+			System.err.println("Cannot point to the object");
+			return false;
+		}
 	}
 	
 	// check if Match by ID
-	public boolean isMatchByID(int id) {
-		return this.getId() == id;
+	public boolean isMatchByID(int id) throws IOException {
+		if (id >= 0) {
+			return this.getId() == id;
+		} else {
+			throw new IOException("Comparing id must be greater or equal to zero");
+		}
 	}
 	
 	// check if Match by Title
-	public boolean isMatchByTitle(String title) {
+	public boolean isMatchByTitle(String title) throws IOException {
+		if (title.equals("")) {
+			throw new IOException("Comparing title must not be an empty string");
+		}
 		return this.title.equals(title);
 	}
 	
 	// Try to play 
-	public void tryToPlay() {
+	public void tryToPlay() throws ClassCastException, PlayerException {
 		if (this instanceof Playable) {
 			var playable = (Playable) this;
-			playable.play();
+			try {
+				playable.play();
+			} catch (PlayerException e) {
+				throw e;
+			}
+		} else {
+			throw new ClassCastException("The media is not playable");
 		}
-		else System.out.println("This item is not playable");
 	}
 }
