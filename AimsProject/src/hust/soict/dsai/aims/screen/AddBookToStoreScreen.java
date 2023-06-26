@@ -11,38 +11,39 @@ import javafx.scene.Scene;
 
 import javax.swing.*;
 import java.awt.*;
-
 import java.io.IOException;
 
-public class CartScreen extends JFrame {
-    private Cart cart;
+public class AddBookToStoreScreen extends JFrame {
     private Store store;
+    private Cart cart;
 
-    public CartScreen(Cart cart, Store store){
+    public AddBookToStoreScreen(Store store, Cart cart) {
         super();
-
-        this.cart = cart;
         this.store = store;
+        this.cart = cart;
 
-        // Setup Panel
+        // initiate panel
         JFXPanel fxPanel = new JFXPanel();
         this.add(fxPanel);
 
-        this.setTitle("Cart");
-        this.setSize(new Dimension(1024, 768));
+        // Configure panel
+        this.setTitle("Add Book To Store");
+        this.setSize(new Dimension(600, 400));
         this.setVisible(true);
+
         Runnable windowCloser = () -> SwingUtilities.invokeLater(
                 () -> this.setVisible(false)
         );
+
         // Run
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass()
-                            .getResource("cart.fxml"));
-                    CartScreenController controller =
-                            new CartScreenController(store, cart, this);
+                            .getResource("addBook.fxml"));
+                    AddBookToStoreScreenController controller = new
+                            AddBookToStoreScreenController(store, cart);
                     loader.setController(controller);
                     controller.setWindowCloser(windowCloser);
                     Parent root = loader.load();
@@ -52,11 +53,5 @@ public class CartScreen extends JFrame {
                 }
             }
         });
-    }
-    // This class is just for test!
-    public static void main(String[] args) {
-        Cart cart = new Cart();
-        Store store = new Store();
-        new CartScreen(cart, store);
     }
 }

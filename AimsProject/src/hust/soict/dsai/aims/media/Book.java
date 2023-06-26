@@ -1,9 +1,10 @@
 package hust.soict.dsai.aims.media;
+import java.io.IOException;
 import java.util.*;
 
 public class Book extends Media {
 	private List<String> authors = new ArrayList<String>();
-	public Book(String title, String category, float cost) {
+	public Book(String title, String category, float cost) throws IOException {
 		// TODO Auto-generated constructor stub
 		super(title, category, cost);
 	}

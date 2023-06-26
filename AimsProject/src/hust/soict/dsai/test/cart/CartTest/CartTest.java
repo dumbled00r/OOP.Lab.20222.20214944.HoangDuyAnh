@@ -3,8 +3,11 @@ package hust.soict.dsai.test.cart.CartTest;
 import hust.soict.dsai.aims.cart.Cart.*;
 import hust.soict.dsai.aims.media.*;
 
+import javax.naming.LimitExceededException;
+import java.io.IOException;
+
 public class CartTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, LimitExceededException {
 		// TODO Auto-generated method stub
 		// Create a new cart
 		Cart cart = new Cart();

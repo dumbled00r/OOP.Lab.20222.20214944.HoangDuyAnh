@@ -1,36 +1,40 @@
 package hust.soict.dsai.aims.media;
 
+import hust.soict.dsai.aims.exception.PlayerException;
+
+import java.io.IOException;
+
 public class DigitalVideoDisc extends Disc implements Playable {
 	// Construct method
-	public DigitalVideoDisc() {
+	public DigitalVideoDisc() throws IOException {
 		super(null, null, null, 0, 0);
 	}
 	
 	/**
-	 * @param Create DVD by title
+	 * Create DVD by title
 	 */
-	public DigitalVideoDisc(String title) {
+	public DigitalVideoDisc(String title) throws IOException {
 		super(title, null, null, 0, 0);
 	}
 	
 	/**
-	 * @param Create DVD by category, title, cost
+	 * Create DVD by category, title, cost
 	 */
-	public DigitalVideoDisc(String category, String title, float cost) {
+	public DigitalVideoDisc(String category, String title, float cost) throws IOException {
 		super(title, category, null, 0, cost);
 	}
 
 	/**
-	 * @param Create DVD by director, category, title and cost
+	 * Create DVD by director, category, title and cost
 	 */
-	public DigitalVideoDisc(String director, String category, String title, float cost) {
+	public DigitalVideoDisc(String director, String category, String title, float cost) throws IOException {
 		super(title, category, director, 0, cost);
 	}
 	
 	/**
-	 * @param Create DVD by all attributes: title, category, director, length and cost
+	 * Create DVD by all attributes: title, category, director, length and cost
 	 */
-	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost) throws IOException {
 		super(title, category, director, length, cost);
 	}
 	
@@ -41,8 +45,13 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	}
 	
 	// implementing playable
-	public void play() {
-		System.out.println("Playing DVD: " + this.getTitle());
-		System.out.println("DVD length: " + this.getLength());
+	public void play() throws PlayerException {
+		// Check if track's length is greater than 0 or not
+		if (this.getLength() >= 0) {
+			System.out.println("Playing DVD: " + this.getTitle());
+			System.out.println("DVD length: " + this.getLength());
+		} else {
+			throw new PlayerException("ERROR: DVD length is non-positive!");
+		}
 	}
 }

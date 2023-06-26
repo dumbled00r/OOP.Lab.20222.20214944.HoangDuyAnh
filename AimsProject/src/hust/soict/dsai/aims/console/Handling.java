@@ -1,8 +1,12 @@
 package hust.soict.dsai.aims.console;
 
+import java.io.IOException;
 import java.util.*;
 import hust.soict.dsai.aims.cart.Cart.*;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.store.Store.Store;
+
+import javax.naming.LimitExceededException;
 import java.util.InputMismatchException;
 
 public abstract class Handling {
@@ -26,11 +30,11 @@ public abstract class Handling {
 	}
 	
 	protected abstract void displayInfo();
-	protected abstract void handleChoice(int choice);
+	protected abstract void handleChoice(int choice) throws IOException, LimitExceededException, PlayerException;
 	protected void exitLoop() { loop = false; };
 	
 	// Display menus method
-	public void display() {
+	public void display() throws LimitExceededException, IOException {
 		while (loop) {
 			// Clear screen
 			System.out.print("\033[H\033[2J");

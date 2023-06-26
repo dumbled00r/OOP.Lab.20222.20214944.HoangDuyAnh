@@ -1,7 +1,10 @@
 package hust.soict.dsai.aims.console;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import hust.soict.dsai.aims.media.*;
+
+import javax.naming.LimitExceededException;
 
 public class AddMedia extends Handling {
 	public AddMedia(Handling menu) {
@@ -20,7 +23,7 @@ public class AddMedia extends Handling {
 	}
 	
 	// This is for making tracks to add to the CD
-	private Track makeTrack() {
+	private Track makeTrack() throws IOException {
 		System.out.println("Enter title of the track: ");
 		String title = scanner.nextLine().trim();
 		if (title.isEmpty()) return null;
@@ -36,7 +39,7 @@ public class AddMedia extends Handling {
 	
 	// This is for adding media to the store
 	@Override
-	protected void handleChoice(int choice) {
+	protected void handleChoice(int choice) throws IOException, LimitExceededException {
 		// TODO Auto-generated method stub
 		System.out.println("Enter title of the media: ");
 		String title = scanner.nextLine().trim();

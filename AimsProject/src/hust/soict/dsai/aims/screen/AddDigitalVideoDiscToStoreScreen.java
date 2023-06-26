@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.screen;
 
-import hust.soict.dsai.aims.cart.Cart.Cart;
 import hust.soict.dsai.aims.store.Store.Store;
+import hust.soict.dsai.aims.cart.Cart.Cart;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -14,23 +14,23 @@ import java.awt.*;
 
 import java.io.IOException;
 
-public class CartScreen extends JFrame {
-    private Cart cart;
+public class AddDigitalVideoDiscToStoreScreen extends JFrame {
     private Store store;
+    private Cart cart;
 
-    public CartScreen(Cart cart, Store store){
+    public AddDigitalVideoDiscToStoreScreen(Store store, Cart cart) {
         super();
 
-        this.cart = cart;
         this.store = store;
-
-        // Setup Panel
+        this.cart = cart;
+        // Setup panel
         JFXPanel fxPanel = new JFXPanel();
         this.add(fxPanel);
 
-        this.setTitle("Cart");
-        this.setSize(new Dimension(1024, 768));
+        this.setTitle("Add Digital Video Disc");
+        this.setSize(new Dimension(600, 400));
         this.setVisible(true);
+
         Runnable windowCloser = () -> SwingUtilities.invokeLater(
                 () -> this.setVisible(false)
         );
@@ -40,9 +40,9 @@ public class CartScreen extends JFrame {
             public void run() {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass()
-                            .getResource("cart.fxml"));
-                    CartScreenController controller =
-                            new CartScreenController(store, cart, this);
+                            .getResource("addDVD.fxml"));
+                    AddDigitalVideoDiscToScreenController controller = new
+                            AddDigitalVideoDiscToScreenController(store, cart);
                     loader.setController(controller);
                     controller.setWindowCloser(windowCloser);
                     Parent root = loader.load();
@@ -52,11 +52,5 @@ public class CartScreen extends JFrame {
                 }
             }
         });
-    }
-    // This class is just for test!
-    public static void main(String[] args) {
-        Cart cart = new Cart();
-        Store store = new Store();
-        new CartScreen(cart, store);
     }
 }
