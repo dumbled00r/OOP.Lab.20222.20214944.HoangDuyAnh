@@ -3,6 +3,7 @@ package hust.soict.dsai.aims.console;
 import java.io.IOException;
 import java.util.*;
 import hust.soict.dsai.aims.cart.Cart.*;
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.store.Store.Store;
 
 import javax.naming.LimitExceededException;
@@ -29,7 +30,7 @@ public abstract class Handling {
 	}
 	
 	protected abstract void displayInfo();
-	protected abstract void handleChoice(int choice) throws IOException, LimitExceededException;
+	protected abstract void handleChoice(int choice) throws IOException, LimitExceededException, PlayerException;
 	protected void exitLoop() { loop = false; };
 	
 	// Display menus method

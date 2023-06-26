@@ -4,6 +4,7 @@ import javax.naming.LimitExceededException;
 import javax.swing.*;
 import java.awt.*;
 
+import hust.soict.dsai.aims.exception.PlayerException;
 import hust.soict.dsai.aims.media.*;
 import hust.soict.dsai.aims.cart.Cart.*;
 
@@ -49,7 +50,15 @@ public class MediaStore extends JPanel{
 		});
 		play.addActionListener(e -> {
 			// TODO Auto-generated method stub
-			JOptionPane.showMessageDialog(play, "Playing this track");
+			if (media instanceof Playable) {
+				Disc mediacv = (Disc) media;
+					try {
+						mediacv.tryToPlay();
+						JOptionPane.showMessageDialog(play, "Playing this track");
+					} catch (PlayerException ex) {
+						JOptionPane.showMessageDialog(play, ex);
+					}
+			}
 		});
 
 		// Adding to the main Panel

@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.screen;
 
 import hust.soict.dsai.aims.cart.Cart.Cart;
-import hust.soict.dsai.aims.media.CompactDisc;
+import hust.soict.dsai.aims.media.Book;
 import hust.soict.dsai.aims.store.Store.Store;
 
 import javafx.fxml.FXML;
@@ -46,14 +46,14 @@ public class AddBookToStoreScreenController  {
             String title = tfTitle.getText();
             String category = tfCategory.getText();
             Float cost = Float.parseFloat(tfCost.getText());
-            CompactDisc cd = null;
+            Book book = null;
             try {
-                cd = new CompactDisc(title, category, cost);
+                book = new Book(title, category, cost);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
             try {
-                store.addMedia(cd);
+                store.addMedia(book);
             } catch (LimitExceededException ex) {
                 throw new RuntimeException(ex);
             }

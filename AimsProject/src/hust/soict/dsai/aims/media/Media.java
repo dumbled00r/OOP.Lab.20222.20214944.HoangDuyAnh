@@ -1,5 +1,7 @@
 package hust.soict.dsai.aims.media;
 
+import hust.soict.dsai.aims.exception.PlayerException;
+
 import java.io.IOException;
 import java.util.Comparator;
 
@@ -95,12 +97,17 @@ public abstract class Media {
 	
 	// Overriding equals method
 	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof Media) {
+	public boolean equals(Object obj) throws NullPointerException, ClassCastException{
+		try {
 			Media media = (Media) obj;
 			return this.getTitle() == media.getTitle();
+		} catch (ClassCastException e) {
+			System.err.println("Cannot cast to Media");
+			return false;
+		} catch (NullPointerException e) {
+			System.err.println("Cannot point to the object");
+			return false;
 		}
-		return false;
 	}
 	
 	// check if Match by ID
@@ -121,10 +128,14 @@ public abstract class Media {
 	}
 	
 	// Try to play 
-	public void tryToPlay() throws ClassCastException {
+	public void tryToPlay() throws ClassCastException, PlayerException {
 		if (this instanceof Playable) {
 			var playable = (Playable) this;
-			playable.play();
+			try {
+				playable.play();
+			} catch (PlayerException e) {
+				throw e;
+			}
 		} else {
 			throw new ClassCastException("The media is not playable");
 		}

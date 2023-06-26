@@ -100,9 +100,10 @@ public class StoreScreen extends JFrame {
 		this.cart = cart;
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
-		
+
 		cp.add(createNorth(), BorderLayout.NORTH);
 		cp.add(createCenter(), BorderLayout.CENTER);
+
 		
 		setVisible(true);
 		setTitle("Store");
